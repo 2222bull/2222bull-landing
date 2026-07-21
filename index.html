@@ -106,9 +106,15 @@
     margin-top:40px;
     display:grid; grid-template-columns:repeat(3, 1fr); gap:4px;
   }
-  .grid-portfolio a{ display:block; aspect-ratio:4/5; overflow:hidden; background:var(--ink-2); }
-  .grid-portfolio img{ width:100%; height:100%; object-fit:cover; transition:transform .5s ease; }
-  .grid-portfolio a:hover img{ transform:scale(1.05); }
+  .grid-portfolio a{ display:block; position:relative; aspect-ratio:4/5; overflow:hidden; background:var(--ink-2); }
+  .grid-portfolio img, .grid-portfolio video{ width:100%; height:100%; object-fit:cover; transition:transform .5s ease; }
+  .grid-portfolio a:hover img, .grid-portfolio a:hover video{ transform:scale(1.05); }
+  .grid-portfolio .play-badge{
+    position:absolute; top:10px; right:10px; width:26px; height:26px;
+    background:rgba(10,10,11,.7); color:var(--gold-2); border-radius:50%;
+    display:flex; align-items:center; justify-content:center; font-size:11px;
+    pointer-events:none;
+  }
   @media (max-width:700px){ .grid-portfolio{ grid-template-columns:repeat(2, 1fr); } }
 
   /* ---------- COMO FUNCIONA ---------- */
@@ -207,13 +213,19 @@
   <div class="wrap">
     <div class="kicker">Portfolio</div>
     <h2>Piezas reales, no referencias de stock.</h2>
-    <p class="lede">Reemplazá cada imagen de acá abajo por tus mejores fotos — mismo nombre de archivo, misma carpeta <code>fotos/</code>. Ordená primero tus 2-3 piezas más fuertes.</p>
+    <p class="lede">Reemplazá cada casillero de acá abajo por tus mejores fotos o videos — mismo nombre de archivo, misma carpeta <code>fotos/</code>. Los casilleros con ícono de play ya están armados para video (mp4), el resto son fotos. Ordená primero tus 2-3 piezas más fuertes.</p>
     <div class="grid-portfolio">
       <a href="fotos/pieza-1.jpg" target="_blank"><img src="fotos/pieza-1.jpg" alt="Pieza 1" onerror="this.parentElement.style.background='linear-gradient(135deg,#1c1c1f,#0a0a0b)'; this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend','<div style=&quot;height:100%;display:flex;align-items:center;justify-content:center;color:#555;font-size:12px;text-align:center;padding:12px&quot;>fotos/pieza-1.jpg</div>')" /></a>
-      <a href="fotos/pieza-2.jpg" target="_blank"><img src="fotos/pieza-2.jpg" alt="Pieza 2" onerror="this.parentElement.style.background='linear-gradient(135deg,#1c1c1f,#0a0a0b)'; this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend','<div style=&quot;height:100%;display:flex;align-items:center;justify-content:center;color:#555;font-size:12px;text-align:center;padding:12px&quot;>fotos/pieza-2.jpg</div>')" /></a>
+      <a href="fotos/pieza-2.mp4" target="_blank" class="tile-video">
+        <video src="fotos/pieza-2.mp4" autoplay muted loop playsinline onerror="this.parentElement.style.background='linear-gradient(135deg,#1c1c1f,#0a0a0b)'; this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend','<div style=&quot;height:100%;display:flex;align-items:center;justify-content:center;color:#555;font-size:12px;text-align:center;padding:12px&quot;>fotos/pieza-2.mp4</div>')"></video>
+        <span class="play-badge">▶</span>
+      </a>
       <a href="fotos/pieza-3.jpg" target="_blank"><img src="fotos/pieza-3.jpg" alt="Pieza 3" onerror="this.parentElement.style.background='linear-gradient(135deg,#1c1c1f,#0a0a0b)'; this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend','<div style=&quot;height:100%;display:flex;align-items:center;justify-content:center;color:#555;font-size:12px;text-align:center;padding:12px&quot;>fotos/pieza-3.jpg</div>')" /></a>
       <a href="fotos/pieza-4.jpg" target="_blank"><img src="fotos/pieza-4.jpg" alt="Pieza 4" onerror="this.parentElement.style.background='linear-gradient(135deg,#1c1c1f,#0a0a0b)'; this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend','<div style=&quot;height:100%;display:flex;align-items:center;justify-content:center;color:#555;font-size:12px;text-align:center;padding:12px&quot;>fotos/pieza-4.jpg</div>')" /></a>
-      <a href="fotos/pieza-5.jpg" target="_blank"><img src="fotos/pieza-5.jpg" alt="Pieza 5" onerror="this.parentElement.style.background='linear-gradient(135deg,#1c1c1f,#0a0a0b)'; this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend','<div style=&quot;height:100%;display:flex;align-items:center;justify-content:center;color:#555;font-size:12px;text-align:center;padding:12px&quot;>fotos/pieza-5.jpg</div>')" /></a>
+      <a href="fotos/pieza-5.mp4" target="_blank" class="tile-video">
+        <video src="fotos/pieza-5.mp4" autoplay muted loop playsinline onerror="this.parentElement.style.background='linear-gradient(135deg,#1c1c1f,#0a0a0b)'; this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend','<div style=&quot;height:100%;display:flex;align-items:center;justify-content:center;color:#555;font-size:12px;text-align:center;padding:12px&quot;>fotos/pieza-5.mp4</div>')"></video>
+        <span class="play-badge">▶</span>
+      </a>
       <a href="fotos/pieza-6.jpg" target="_blank"><img src="fotos/pieza-6.jpg" alt="Pieza 6" onerror="this.parentElement.style.background='linear-gradient(135deg,#1c1c1f,#0a0a0b)'; this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend','<div style=&quot;height:100%;display:flex;align-items:center;justify-content:center;color:#555;font-size:12px;text-align:center;padding:12px&quot;>fotos/pieza-6.jpg</div>')" /></a>
     </div>
   </div>

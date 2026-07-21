@@ -6,22 +6,32 @@
 
 ## Lo que falta que hagas vos (Douglas)
 
-### 1. Poner tus fotos reales
-Meté tus mejores 6 fotos en la carpeta `landing/fotos/`, con estos nombres
-exactos:
+### 1. Poner tus fotos y videos reales
+Meté tus mejores fotos y videos en la carpeta `fotos/` (el nombre de la
+carpeta quedó así por como arrancó el proyecto, pero adentro entran los dos
+tipos de archivo), con estos nombres exactos:
 
 ```
 fotos/hero.jpg      → la foto grande de fondo, arriba de todo
-fotos/pieza-1.jpg   → tu mejor trabajo
-fotos/pieza-2.jpg
-fotos/pieza-3.jpg
-fotos/pieza-4.jpg
-fotos/pieza-5.jpg
-fotos/pieza-6.jpg
+fotos/pieza-1.jpg   → foto
+fotos/pieza-2.mp4   → video (ya viene armado para reproducirse solo, sin sonido)
+fotos/pieza-3.jpg   → foto
+fotos/pieza-4.jpg   → foto
+fotos/pieza-5.mp4   → video
+fotos/pieza-6.jpg   → foto
 ```
 
-Mientras no las pongas, esos espacios se ven vacíos con el nombre del
-archivo que falta — no rompe nada, es solo un aviso para vos.
+Los casilleros 2 y 5 ya están preparados para **video** (mp4) — se
+reproducen solos en bucle, sin sonido, como en Instagram. Si preferís que
+alguno de esos sea foto en vez de video (o al revés), avisale a tu Claude
+y se lo cambia — es solo intercambiar la etiqueta en el HTML.
+
+**Consejo:** tu reel de Sukuna x Itadori (el que tuvo casi 25.000 likes) es
+un candidato perfecto para uno de los casilleros de video — ya demostró que
+funciona.
+
+Mientras no pongas los archivos, esos espacios se ven vacíos con el nombre
+del archivo que falta — no rompe nada, es solo un aviso para vos.
 
 ### 2. Conectar el formulario a tu email (Formspree, gratis)
 Así te llega un mail cada vez que alguien completa el formulario:
