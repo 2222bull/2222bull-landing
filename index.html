@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>2222Bull Tattoo — Anime · Manga · Black Work</title>
+<meta name="description" content="Tatuajes de anime y manga a medida en Montevideo. Diseño fiel al panel original, con garantía." />
+<style>
+  @media (prefers-color-scheme: light) {
+    :root { color-scheme: dark; }
+  }
+  :root{
+    --ink:#0a0a0b;
+    --ink-2:#141416;
+    --paper:#efe9df;
+    --paper-dim:#b9b2a4;
+    --gold:#c9a24b;
+    --gold-2:#e6c374;
+    --red:#8f2b23;
+    --line:#2a2a2d;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    line-height:1.5;
+  }
+  img{ max-width:100%; display:block; }
+  a{ color:inherit; }
+  .wrap{ max-width:1080px; margin:0 auto; padding:0 24px; }
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(10,10,11,.85);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav .wrap{ display:flex; align-items:center; justify-content:space-between; height:64px; }
+  .brand{ font-family:Georgia,"Times New Roman",serif; font-weight:700; letter-spacing:.06em; font-size:18px; text-transform:uppercase; }
+  .brand span{ color:var(--gold-2); }
+  .nav-cta{
+    background:var(--gold); color:var(--ink); font-weight:700; font-size:13px;
+    padding:10px 18px; border-radius:2px; text-transform:uppercase; letter-spacing:.05em;
+    text-decoration:none;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    min-height:86vh;
+    display:flex; align-items:flex-end;
+    background:
+      linear-gradient(180deg, rgba(10,10,11,.15) 0%, rgba(10,10,11,.55) 55%, var(--ink) 100%),
+      linear-gradient(120deg, #1a1a1d 0%, #0a0a0b 60%);
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:url('fotos/hero.jpg');
+    background-size:cover; background-position:center 20%;
+    opacity:.55;
+  }
+  .hero-inner{ position:relative; padding:80px 0 64px; }
+  .eyebrow{
+    font-size:12.5px; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--gold-2); font-weight:700; margin-bottom:18px;
+  }
+  h1.headline{
+    font-family:Georgia,"Times New Roman",serif;
+    font-weight:800;
+    font-size:clamp(34px, 6vw, 64px);
+    line-height:1.05;
+    max-width:16ch;
+    text-wrap:balance;
+  }
+  .headline em{ font-style:normal; color:var(--gold-2); }
+  .sub{
+    margin-top:20px; max-width:46ch; font-size:17px; color:var(--paper-dim);
+  }
+  .hero-ctas{ margin-top:32px; display:flex; gap:14px; flex-wrap:wrap; }
+  .btn{
+    display:inline-block; padding:15px 26px; border-radius:2px; font-weight:700;
+    font-size:14.5px; text-decoration:none; letter-spacing:.02em;
+  }
+  .btn-primary{ background:var(--gold); color:var(--ink); }
+  .btn-ghost{ border:1px solid var(--paper-dim); color:var(--paper); }
+
+  /* ---------- SECTION GENERIC ---------- */
+  section{ padding:88px 0; border-bottom:1px solid var(--line); }
+  .kicker{
+    font-size:12px; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--gold-2); font-weight:700; margin-bottom:12px;
+  }
+  h2{
+    font-family:Georgia,"Times New Roman",serif; font-weight:800;
+    font-size:clamp(26px, 4vw, 38px); text-wrap:balance; max-width:22ch;
+  }
+  .lede{ margin-top:14px; max-width:60ch; color:var(--paper-dim); font-size:16px; }
+
+  /* ---------- PORTFOLIO ---------- */
+  .grid-portfolio{
+    margin-top:40px;
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:4px;
+  }
+  .grid-portfolio a{ display:block; aspect-ratio:4/5; overflow:hidden; background:var(--ink-2); }
+  .grid-portfolio img{ width:100%; height:100%; object-fit:cover; transition:transform .5s ease; }
+  .grid-portfolio a:hover img{ transform:scale(1.05); }
+  @media (max-width:700px){ .grid-portfolio{ grid-template-columns:repeat(2, 1fr); } }
+
+  /* ---------- COMO FUNCIONA ---------- */
+  .steps{ margin-top:44px; display:grid; grid-template-columns:repeat(3,1fr); gap:36px; }
+  .step .num{
+    font-family:Georgia,serif; font-weight:800; font-size:34px; color:var(--gold);
+    margin-bottom:10px;
+  }
+  .step h3{ font-size:17px; margin-bottom:8px; }
+  .step p{ color:var(--paper-dim); font-size:14.5px; }
+  @media (max-width:700px){ .steps{ grid-template-columns:1fr; gap:28px; } }
+
+  /* ---------- GARANTIA ---------- */
+  .offer-card{
+    margin-top:40px;
+    background:var(--ink-2); border:1px solid var(--line); border-left:3px solid var(--red);
+    padding:32px;
+  }
+  .offer-card p{ font-size:16.5px; }
+  .offer-card b{ color:var(--gold-2); }
+
+  /* ---------- FORM ---------- */
+  .form-section{ background:var(--ink-2); }
+  .form-grid{ margin-top:40px; display:grid; grid-template-columns:1.1fr .9fr; gap:56px; align-items:flex-start; }
+  @media (max-width:800px){ .form-grid{ grid-template-columns:1fr; gap:32px; } }
+
+  form{ display:flex; flex-direction:column; gap:16px; }
+  .field label{ display:block; font-size:12.5px; text-transform:uppercase; letter-spacing:.05em; color:var(--paper-dim); margin-bottom:6px; }
+  .field input, .field select, .field textarea{
+    width:100%; background:var(--ink); border:1px solid var(--line); color:var(--paper);
+    padding:12px 14px; font-size:15px; border-radius:2px; font-family:inherit;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus{ outline:none; border-color:var(--gold); }
+  .field textarea{ resize:vertical; min-height:80px; }
+  .submit-btn{
+    margin-top:6px; background:var(--gold); color:var(--ink); border:none; padding:16px 22px;
+    font-weight:700; font-size:15px; letter-spacing:.02em; border-radius:2px; cursor:pointer;
+  }
+  .submit-btn:hover{ background:var(--gold-2); }
+  .submit-btn:disabled{ opacity:.6; cursor:default; }
+  .form-note{ font-size:12.5px; color:var(--paper-dim); }
+
+  .incentive{
+    background:var(--ink); border:1px solid var(--line); padding:28px;
+  }
+  .incentive .kicker{ margin-bottom:16px; }
+  .incentive ul{ list-style:none; display:flex; flex-direction:column; gap:14px; margin-top:18px; }
+  .incentive li{ display:flex; gap:12px; align-items:flex-start; font-size:14.5px; color:var(--paper-dim); }
+  .incentive li b{ color:var(--paper); }
+  .check{ flex:none; width:20px; height:20px; border-radius:50%; border:1.5px solid var(--gold); display:flex; align-items:center; justify-content:center; margin-top:1px; }
+  .check svg{ width:11px; height:11px; }
+
+  #coupon-result{ display:none; margin-top:0; }
+  #coupon-result.show{ display:block; }
+  .coupon-box{
+    text-align:center; padding:36px 24px; border:2px dashed var(--gold);
+    background:rgba(201,162,75,.08);
+  }
+  .coupon-code{
+    font-family:Georgia,serif; font-weight:800; font-size:32px; letter-spacing:.08em;
+    color:var(--gold-2); margin:14px 0;
+  }
+  .coupon-box p{ font-size:14px; color:var(--paper-dim); }
+
+  /* ---------- FOOTER ---------- */
+  footer{ padding:48px 0; }
+  .foot-row{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
+  .foot-links{ display:flex; gap:22px; font-size:14px; }
+  .foot-links a{ text-decoration:none; color:var(--paper-dim); }
+  .foot-links a:hover{ color:var(--gold-2); }
+  .copyright{ font-size:12.5px; color:var(--paper-dim); margin-top:24px; }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <div class="brand">2222<span>Bull</span> Tattoo</div>
+    <a class="nav-cta" href="#form">Reservar</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div class="eyebrow">Anime · Manga · Black Work — Montevideo</div>
+    <h1 class="headline">Tu personaje favorito, <em>tatuado por alguien que ama el anime</em> tanto como vos.</h1>
+    <p class="sub">Diseño fiel al panel original, no una interpretación libre. Piezas a medida en puntillismo y línea negra.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary" href="#form">Quiero mi diseño</a>
+      <a class="btn btn-ghost" href="#portfolio">Ver trabajos</a>
+    </div>
+  </div>
+</section>
+
+<section id="portfolio">
+  <div class="wrap">
+    <div class="kicker">Portfolio</div>
+    <h2>Piezas reales, no referencias de stock.</h2>
+    <p class="lede">Reemplazá cada imagen de acá abajo por tus mejores fotos — mismo nombre de archivo, misma carpeta <code>fotos/</code>. Ordená primero tus 2-3 piezas más fuertes.</p>
+    <div class="grid-portfolio">
+      <a href="fotos/pieza-1.jpg" target="_blank"><img src="fotos/pieza-1.jpg" alt="Pieza 1" onerror="this.parentElement.style.background='linear-gradient(135deg,#1c1c1f,#0a0a0b)'; this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend','<div style=&quot;height:100%;display:flex;align-items:center;justify-content:center;color:#555;font-size:12px;text-align:center;padding:12px&quot;>fotos/pieza-1.jpg</div>')" /></a>
+      <a href="fotos/pieza-2.jpg" target="_blank"><img src="fotos/pieza-2.jpg" alt="Pieza 2" onerror="this.parentElement.style.background='linear-gradient(135deg,#1c1c1f,#0a0a0b)'; this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend','<div style=&quot;height:100%;display:flex;align-items:center;justify-content:center;color:#555;font-size:12px;text-align:center;padding:12px&quot;>fotos/pieza-2.jpg</div>')" /></a>
+      <a href="fotos/pieza-3.jpg" target="_blank"><img src="fotos/pieza-3.jpg" alt="Pieza 3" onerror="this.parentElement.style.background='linear-gradient(135deg,#1c1c1f,#0a0a0b)'; this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend','<div style=&quot;height:100%;display:flex;align-items:center;justify-content:center;color:#555;font-size:12px;text-align:center;padding:12px&quot;>fotos/pieza-3.jpg</div>')" /></a>
+      <a href="fotos/pieza-4.jpg" target="_blank"><img src="fotos/pieza-4.jpg" alt="Pieza 4" onerror="this.parentElement.style.background='linear-gradient(135deg,#1c1c1f,#0a0a0b)'; this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend','<div style=&quot;height:100%;display:flex;align-items:center;justify-content:center;color:#555;font-size:12px;text-align:center;padding:12px&quot;>fotos/pieza-4.jpg</div>')" /></a>
+      <a href="fotos/pieza-5.jpg" target="_blank"><img src="fotos/pieza-5.jpg" alt="Pieza 5" onerror="this.parentElement.style.background='linear-gradient(135deg,#1c1c1f,#0a0a0b)'; this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend','<div style=&quot;height:100%;display:flex;align-items:center;justify-content:center;color:#555;font-size:12px;text-align:center;padding:12px&quot;>fotos/pieza-5.jpg</div>')" /></a>
+      <a href="fotos/pieza-6.jpg" target="_blank"><img src="fotos/pieza-6.jpg" alt="Pieza 6" onerror="this.parentElement.style.background='linear-gradient(135deg,#1c1c1f,#0a0a0b)'; this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend','<div style=&quot;height:100%;display:flex;align-items:center;justify-content:center;color:#555;font-size:12px;text-align:center;padding:12px&quot;>fotos/pieza-6.jpg</div>')" /></a>
+    </div>
+  </div>
+</section>
+
+<section id="como-funciona">
+  <div class="wrap">
+    <div class="kicker">Cómo funciona</div>
+    <h2>De la idea a la piel, en 3 pasos.</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="num">01</div>
+        <h3>Contame tu idea</h3>
+        <p>Personaje, escena o panel exacto. Completá el formulario de abajo o escribime por Instagram.</p>
+      </div>
+      <div class="step">
+        <div class="num">02</div>
+        <h3>Te mando un diseño a medida</h3>
+        <p>Fiel al panel original, ajustado a la zona del cuerpo y tamaño que elegiste.</p>
+      </div>
+      <div class="step">
+        <div class="num">03</div>
+        <h3>Agendamos y te tatuás</h3>
+        <p>Seña de $500 (se descuenta del total). Si el diseño no te enamora, no pagás la seña.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="garantia">
+  <div class="wrap">
+    <div class="kicker">La garantía</div>
+    <h2>No te vendo una sesión. Te vendo una pieza que va a quedarte bien.</h2>
+    <div class="offer-card">
+      <p><b>Si el diseño no te enamora, no pagás la seña.</b> Y si algo cicatriza distinto a lo esperado, coordinamos una sesión de repaso — el retoque va incluido, no es un extra que te vendo después.</p>
+    </div>
+  </div>
+</section>
+
+<section class="form-section" id="form">
+  <div class="wrap">
+    <div class="kicker">Reservá tu lugar</div>
+    <h2>Contame tu idea y consegui 10% off en tu primera pieza.</h2>
+    <p class="lede">Completá estos datos — con esto puedo prepararte una respuesta más precisa (y más rápida) cuando te escriba.</p>
+
+    <div class="form-grid">
+      <div>
+        <form id="lead-form">
+          <div class="field">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" required />
+          </div>
+          <div class="field">
+            <label for="contacto">Instagram o WhatsApp</label>
+            <input type="text" id="contacto" name="contacto" placeholder="@tu_usuario o tu número" required />
+          </div>
+          <div class="field">
+            <label for="personaje">¿Qué personaje o escena querés tatuarte?</label>
+            <textarea id="personaje" name="personaje" placeholder="Ej: Sukuna de Jujutsu Kaisen, en el antebrazo" required></textarea>
+          </div>
+          <div class="field">
+            <label for="presupuesto">Presupuesto aproximado</label>
+            <select id="presupuesto" name="presupuesto" required>
+              <option value="">Elegí un rango</option>
+              <option value="Menos de $4.000">Menos de $4.000</option>
+              <option value="$4.000 - $8.000">$4.000 - $8.000</option>
+              <option value="Más de $8.000">Más de $8.000</option>
+              <option value="No lo tengo claro todavia">No lo tengo claro todavía</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="fecha">¿Cuándo te gustaría agendar?</label>
+            <select id="fecha" name="fecha" required>
+              <option value="">Elegí una opción</option>
+              <option value="Esta semana">Esta semana</option>
+              <option value="Este mes">Este mes</option>
+              <option value="Todavia sin fecha">Todavía sin fecha, estoy mirando</option>
+            </select>
+          </div>
+          <button type="submit" class="submit-btn" id="submit-btn">Enviar y ver mi cupón</button>
+          <p class="form-note">Te contesto yo mismo por Instagram o WhatsApp, a mano — no es un bot.</p>
+        </form>
+
+        <div id="coupon-result">
+          <div class="coupon-box">
+            <div class="kicker" style="margin-bottom:0">¡Listo, ganaste tu descuento!</div>
+            <div class="coupon-code">ANIME10</div>
+            <p>Guardá una captura de esto. Mandámela por Instagram o WhatsApp junto con tu idea y te aplico el 10% off en tu primera pieza.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="incentive">
+        <div class="kicker">Qué gana quien completa esto</div>
+        <ul>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#c9a24b" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span><span><b>10% de descuento</b> en tu primera pieza, al instante.</span></li>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#c9a24b" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span><span><b>Respuesta más rápida</b> — ya tengo tu idea y presupuesto antes de hablar.</span></li>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#c9a24b" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span><span><b>Sin compromiso</b> — completar esto no te obliga a agendar nada.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-row">
+      <div class="brand">2222<span style="color:var(--gold-2)">Bull</span> Tattoo</div>
+      <div class="foot-links">
+        <a href="https://instagram.com/2222bull.tattoo" target="_blank">Instagram</a>
+        <a href="#form">Reservar</a>
+      </div>
+    </div>
+    <p class="copyright">Montevideo, Uruguay. © 2222Bull Tattoo.</p>
+  </div>
+</footer>
+
+<script>
+  // Reemplazá FORM_ENDPOINT por tu URL de Formspree (ver instrucciones en landing/README.md)
+  const FORM_ENDPOINT = "";
+
+  const form = document.getElementById('lead-form');
+  const btn = document.getElementById('submit-btn');
+  const result = document.getElementById('coupon-result');
+
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    btn.disabled = true;
+    btn.textContent = "Enviando...";
+
+    const data = new FormData(form);
+
+    if (FORM_ENDPOINT) {
+      try {
+        await fetch(FORM_ENDPOINT, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+      } catch (err) {
+        console.error('No se pudo enviar el formulario:', err);
+      }
+    } else {
+      console.warn('FORM_ENDPOINT vacío: el formulario no se está enviando a ningún lado todavía.');
+    }
+
+    form.style.display = 'none';
+    result.classList.add('show');
+  });
+</script>
+
+</body>
+</html>
