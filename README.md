@@ -4,6 +4,17 @@
 > garantía y el formulario calificador con cupón de 10%. Pensada para
 > mandarla por DM cuando alguien te escribe por el anuncio o el Instagram.
 
+## Diseño (actualizado 2026-07-22)
+- **Tipografía de títulos:** Anton (bold, condensada, onda portada de manga),
+  cargada desde Google Fonts. Texto de párrafos: Rubik.
+- **Tema claro/oscuro:** botón (🌙/☀️) arriba a la derecha, recuerda la
+  elección en el navegador de cada visitante (`localStorage`). Los colores
+  de cada tema están en `:root` y `:root[data-theme="light"]` en el
+  `<style>` de `index.html` — para cambiar un color, tocar ahí.
+- **Ojo con el hero:** la sección de arriba de todo tiene su propia foto de
+  fondo oscura fija, así que sus colores de texto están fijados aparte
+  (no cambian con el tema) para que siempre se lean bien.
+
 ## Lo que falta que hagas vos (Douglas)
 
 ### 1. Poner tus fotos y videos reales
