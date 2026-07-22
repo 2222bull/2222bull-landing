@@ -109,10 +109,19 @@
     overflow:hidden;
   }
   .hero::before{
+    /* Ancho tope: sin esto, cuanto mas panoramica es la pantalla (PC en
+       pantalla completa), mas alto de la foto se recorta -- background-size:cover
+       siempre llena TODO el ancho, y en una ventana muy ancha eso empuja la
+       imagen a mostrar una franja vertical cada vez mas chica. Con el tope,
+       pasado ese ancho la foto deja de agrandarse y los costados quedan
+       rellenos por el degrade oscuro de .hero (arriba). En celular (angosto)
+       esto no cambia nada, el 100% sigue ganando. */
     content:"";
-    position:absolute; inset:0;
+    position:absolute; top:0; bottom:0; left:50%;
+    width:min(100%, 1200px);
+    transform:translateX(-50%);
     background-image:url('fotos/hero.jpg');
-    background-size:cover; background-position:center 50%;
+    background-size:cover; background-position:center 40%;
     opacity:.55;
   }
   .hero-inner{ position:relative; padding:80px 0 64px; }
