@@ -5,6 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>2222Bull Tattoo — Anime · Manga · Black Work</title>
 <meta name="description" content="Tatuajes de anime y manga a medida en Montevideo. Diseño fiel al panel original, con garantía." />
+
+<!-- ===================== Meta Pixel ===================== -->
+<!-- Douglas: reemplaza  TU_PIXEL_ID  (en la linea de abajo) por tu numero de pixel. -->
+<!-- Es el UNICO lugar que tocas. El pixel solo se enciende si pones tu numero. -->
+<!-- Ver landing/COMO-ACTIVAR-PIXEL.md, paso 2. -->
+<script>
+  const META_PIXEL_ID = "TU_PIXEL_ID";
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  if (/^[0-9]+$/.test(META_PIXEL_ID)) {   // solo se activa si son puros numeros
+    fbq('init', META_PIXEL_ID);
+    fbq('track', 'PageView');
+  }
+</script>
+<!-- =================== Fin Meta Pixel =================== -->
+
 <style>
   @media (prefers-color-scheme: light) {
     :root { color-scheme: dark; }
@@ -371,6 +390,9 @@
     } else {
       console.warn('FORM_ENDPOINT vacío: el formulario no se está enviando a ningún lado todavía.');
     }
+
+    // Meta Pixel: registrar el lead calificado (solo si el pixel esta activo)
+    if (window.fbq && /^[0-9]+$/.test(META_PIXEL_ID)) { fbq('track', 'Lead'); }
 
     form.style.display = 'none';
     result.classList.add('show');
