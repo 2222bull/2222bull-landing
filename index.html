@@ -93,10 +93,13 @@
   /* ---------- HERO ---------- */
   .hero{
     /* El hero siempre queda sobre una foto oscura, asi que fija sus propios
-       colores de texto (claros) sin importar el tema claro/oscuro del resto. */
+       colores de texto (claros) sin importar el tema claro/oscuro del resto.
+       El color se declara EXPLICITO aca (no solo la variable) porque `color`
+       normal se hereda ya calculado desde el body, no se re-evalua por hijo. */
     --paper:#efe9df;
     --paper-dim:#b9b2a4;
     --gold-2:#e6c374;
+    color:var(--paper);
     position:relative;
     min-height:86vh;
     display:flex; align-items:flex-end;
